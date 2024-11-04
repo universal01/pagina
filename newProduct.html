@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #333;
+            width: 100%;
+        }
+
+        header img {
+            max-width: 150px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .nav-main {
+            background-color: #444;
+            width: 100%;
+        }
+
+        .nav-main ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-main ul li {
+            margin: 0 1rem;
+        }
+
+        .nav-main ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+        }
+
+        .nav-main ul li a:hover {
+            background-color: #555;
+        }
+
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-main ul {
+                flex-direction: column;
+            }
+
+            .nav-main ul li {
+                margin: 0.5rem 0;
+            }
+
+            form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="olp.jpg.jpg" alt="The Store">
+    </header>
+    <nav class="nav-main">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="newProduct.html">New Product</a></li>
+            <li><a href="cart.html">Car</a></li>
+        </ul>
+    </nav>
+
+    <form id="productForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <span class="error-message" id="nameError">This field is required.</span>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+        <span class="error-message" id="priceError">This field is required.</span>
+        
+        <label for="inventory">Inventory:</label>
+        <input type="number" id="inventory" name="inventory">
+        <span class="error-message" id="inventoryError">This field is required.</span>
+        
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+            <option value="home">Home</option>
+            <!-- Agrega más categorías según sea necesario -->
+        </select>
+        
+        <button type="submit">Create Product</button>
+    </form>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Validar el campo 'name'
+            const name = document.getElementById('name').value;
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+            }
+
+            // Validar el campo 'price'
+            const price = document.getElementById('price').value;
+            if (price === '') {
+                document.getElementById('priceError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('priceError').style.display = 'none';
+            }
+
+            // Validar el campo 'inventory'
+            const inventory = document.getElementById('inventory').value;
+            if (inventory === '') {
+                document.getElementById('inventoryError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('inventoryError').style.display = 'none';
+            }
+
+            // Si todos los campos son válidos, mostrar alerta y limpiar el formulario
+            if (isValid) {
+                alert('Producto creado');
+                document.getElementById('productForm').reset();
+                document.querySelectorAll('.error-message').forEach(function(el) {
+                    el.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

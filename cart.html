@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - TheStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .cart-item {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cart-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .cart-item h2, .cart-item p {
+            margin: 0.5rem 0;
+        }
+
+        .cart-item input {
+            width: 50px;
+            text-align: center;
+        }
+
+        .total {
+            font-weight: bold;
+            color: #333;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="olp.jpg.jpg" alt="The Store">
+    </header>
+    <nav class="nav-main">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="newProduct.html">New Product</a></li>
+            <li><a href="cart.html">Car</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="cartContainer">
+        <!-- Aquí se cargarán los productos del carrito dinámicamente -->
+    </div>
+    <script src="cart.js"></script>
+</body>
+</html>
